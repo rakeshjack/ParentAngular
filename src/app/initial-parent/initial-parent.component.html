@@ -1,0 +1,32 @@
+<div class="row">
+    
+    <div class="col-md-2">
+      <h3>User Name</h3>
+        <ul class="list-group" *ngIf="userNameParent.length > 0">
+          <li class="list-group-item" *ngFor="let element of userNameParent">{{element}}</li>
+        </ul>
+        <div *ngIf="userNameParent.length == 0"><ul class="list-group">
+          <li class="list-group-item">No User Found</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <h3>Address</h3>
+      <ul class="list-group" *ngIf="userAddressParent.length > 0">
+        <li class="list-group-item" *ngFor="let add of userAddressParent">{{add}}</li>
+      </ul>
+
+      <div *ngIf="userAddressParent.length == 0">
+        <ul class="list-group">
+          <li class="list-group-item">No Address Found</li>
+        </ul>
+      </div>
+
+  </div>
+
+  <app-name [userName]=userNameParent (userNameChanged)="userNameChangedHandler($event)"></app-name>
+
+  <app-address [userAddress] = userAddressParent (addressUpdated) = "addressUpdatedHandler($event)" ></app-address>
+
+</div>
